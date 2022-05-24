@@ -1,0 +1,39 @@
+
+.ItemCount {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
+.Item-controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* width: 100%; */
+    gap: 20px;
+    background: rgb(247, 247, 247);
+}
+
+.counter-button {
+    padding: 0px 15px;
+    border: none;
+    background: rgb(247, 247, 247);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.counter--items {
+    padding: 10px;
+}
+
+.Item--button {
+    background: rgb(75, 75, 250);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    /* width: 80%; */
+    text-align: center;
+}

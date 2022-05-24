@@ -1,7 +1,9 @@
+import ItemCount from "../ItemCount/ItemCount"
+
 const ItemListContainer = ({greeting}) => {
     return (
         <div className="container">
-            <h1>{greeting}</h1>
+            <ItemCount initial={0} stock={10} />
         </div>
     )
 }

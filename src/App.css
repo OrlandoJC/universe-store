@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Poppins:ital,wght@0,300;0,400;0,700;1,500&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.App {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .header {
   box-shadow: rgb(230, 235, 241) 0px 1px 0px 0px;
-  background: rgb(6, 5, 52);
 }
 
 .logo {
