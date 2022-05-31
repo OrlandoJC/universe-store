@@ -1,12 +1,32 @@
 .Item {
     display: inline-block;
-    padding: 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(146, 146, 146, 0.2) 0px 2px 8px 0px;
     font-size: .9rem;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-duration: 1s;
+    cursor: pointer;
+}
+
+.Item:hover {
+    transform: scale(1.1);
 }
 
 .Item img {
-    width: 180px;
+    width: 220px;
     height: 200px;
     object-fit:cover;
+}
+
+.Item__detail {
+    padding: 10px;
+}
+
+.Item__detail p {
+    line-height: 1.8;
+}
+
+.Item__title {
+    font-weight: bolder;
 }

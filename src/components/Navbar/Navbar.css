@@ -3,6 +3,23 @@
     font-family: poppins;
     font-weight: bold;
     font-size: 1.2rem;
-    color: rgb(63, 141, 220);
+    color: rgb(27, 115, 204);
     padding: 20px 0px;
 }
+
+.header__container {
+    display: flex;
+    align-items: center;
+}
+
+.header__categories ul li {
+    list-style: none;
+    display: inline-block;  
+    margin: 0px 10px;  
+    font-size: .7em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 1px;
+    cursor: pointer
+}
+
