@@ -3,6 +3,7 @@
     font-family: poppins;
     font-weight: bold;
     font-size: 1.2rem;
+<<<<<<< HEAD
     color: rgb(27, 115, 204);
     padding: 20px 0px;
 }
@@ -23,3 +24,8 @@
     cursor: pointer
 }
 
+=======
+    color: rgb(63, 141, 220);
+    padding: 20px 0px;
+}
+>>>>>>> 99d42f4f72f724786580c247967bdaa1ac73d421
