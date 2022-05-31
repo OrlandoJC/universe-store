@@ -1,3 +1,4 @@
+import './Navbar.css'
 import CartWidget from '../CartWidget/CartWidget'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
@@ -7,9 +8,8 @@ const Navbar = () => {
         <header className="header">
             <div className="header__container container">
                 <div className="logo">
-                    <img src="https://labrocheta.netlify.app/assets/img/icons/logo.png" alt="" width="50px" />
+                    <span>UniverseStore</span>
                 </div>
-
                 <div className="header__group">
                     <div className="header__bar">
                         <input className="hedaer__finder" id="search" type="text" placeholder="Buscar.." />

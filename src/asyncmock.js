@@ -3,6 +3,7 @@ const data = [
         id : 1,
         title : "Nike Sportswear",
         description: "Men's T-Shirt",
+        descriptionText : "La playera Nike Sportswear tiene un tejido estilo jersey de alta densidad, elaborada con una mezcla de materiales reciclados. El estampado 'from Beaverton with Love' en el pecho se acentúa con una flor bordada y un logotipo Futura. El estampado Have a Nike Day en la parte inferior de la espalda completa el look.",
         price : 1400,
         pictureUrl : "images/shirt.jpg"
     }, 
@@ -34,6 +35,15 @@ const getProducts = () => {
         setTimeout(() => {
             resolve(data)
         }, 2000)
+    })
+}
+
+export const getProduct = (id) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const product = data.find(product => product.id === id)
+            resolve(product)
+        }, 1000)
     })
 }
 
