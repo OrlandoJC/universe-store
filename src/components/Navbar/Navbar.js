@@ -2,20 +2,20 @@ import './Navbar.css'
 import CartWidget from '../CartWidget/CartWidget'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
         <header className="header">
             <div className="header__container container">
                 <div className="logo">
-                    <span>UNIVERSESTORE</span>
+                    <span><Link to="/"> UNIVERSESTORE </Link></span>
                 </div>
                 <div className='header__categories'>
                     <ul>
-                        <li>PLayeras</li>
-                        <li>Jerseys</li>
-                        <li>shorts</li>
-                        <li>sudaderas</li>
+                        <li><Link to="/category/playera"> playeras </Link></li>
+                        <li><Link to="/category/jersey"> jerseys </Link></li>
+                        <li><Link to="/category/sudadera"> sudadera </Link></li>
                     </ul>
                 </div>
                 <div className="header__group">

@@ -1,6 +1,7 @@
 import './ItemDetail.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({item}) => {
     return (
@@ -35,7 +36,7 @@ const ItemDetail = ({item}) => {
                     </span>
                     <span>10 opiniones</span>
                 </div>
-              
+               {/* <ItemCount stock={5} initial= {0}/> */}
             </div>
         </div>
     )
