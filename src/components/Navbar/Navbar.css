@@ -11,6 +11,11 @@ header {
     padding: 20px 0px;
 }
 
+.logo__text {
+    text-decoration: none;
+    color: rgb(73, 87, 109);
+}
+
 .header__container {
     display: flex;
     align-items: center;

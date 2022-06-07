@@ -61,3 +61,12 @@
 .icon--review {
     color: rgb(255, 71, 71);
 }
+
+.button__pay {
+    text-decoration: none;
+    padding: 10px 10px;
+    border-radius: 20px;
+    background: rgb(25, 94, 213);
+    color: white;
+    cursor: pointer;
+}

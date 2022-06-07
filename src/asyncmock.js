@@ -12,6 +12,7 @@ const data = [
         id: 2,
         title: "Liverpool F.C. 2022/23",
         description : "Men's Nike Dri-FIT ",
+        descriptionText: "Como otros jerseys de nuestra colección Stadium, este combina detalles del diseño tipo réplica con una tela absorbente de sudor para darte un look listo para el partido inspirado en tu equipo favorito. Este producto está fabricado al 100% con fibras de poliéster reciclado.",
         price: 1200,
         pictureUrl : "/images/liverpool.jpg",
         category : "playera"
@@ -20,6 +21,7 @@ const data = [
         id: 3,
         title: "NikeCourt Dri-FIT",
         description : "Men's Tennis T-Shirt",
+        descriptionText : " El diseño reformado de las mangas permite golpear, sacar y tirar por encima de la cabeza sin tener que preocuparte de que la tela se arrugue o te limite en los hombros. El Swoosh celebra su aniversario al unir el pasado y el presente. El Swoosh original aparece sobre la versión actual para representar el camino que ha recorrido Nike. Este producto está fabricado al 100% con fibras de poliéster reciclado",
         price: 1400,
         pictureUrl : "/images/koala.jpg",
         category : "jersey"
@@ -29,6 +31,7 @@ const data = [
         id: 4,
         title: "Paris Saint-Germain 2022",
         description : "Men's Nike",
+        descriptionText: "Como otros jerseys de nuestra colección Stadium, este combina detalles del diseño tipo réplica con tecnología absorbente de sudor para darte un look listo para el partido inspirado en tu equipo favorito. Este producto está fabricado al 100% con fibras de poliéster reciclado.",
         price: 1500,
         pictureUrl : "/images/paris.jpg",
         category : "sudadera"

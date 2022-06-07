@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
     return (
         <header className="header">
-            <div className="header__container container">
+            <div className="header__container">
                 <div className="logo">
-                    <span><Link to="/"> UNIVERSESTORE </Link></span>
+                    <span ><Link to="/" className='logo__text'> UNIVERSESTORE </Link></span>
                 </div>
                 <div className='header__categories'>
                     <ul>
