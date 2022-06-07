@@ -2,8 +2,16 @@ import './ItemDetail.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import ItemCount from '../ItemCount/ItemCount'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const ItemDetail = ({item}) => {
+    const [quantity, setQuantity] = useState(0)
+
+    const handleAdd = (elements) => {
+        setQuantity(elements)
+    }
+
     return (
         <div className="ItemDetail">
             <div className="ItemDetail__image">
@@ -36,7 +44,8 @@ const ItemDetail = ({item}) => {
                     </span>
                     <span>10 opiniones</span>
                 </div>
-               {/* <ItemCount stock={5} initial= {0}/> */}
+                { quantity > 0 ? <Link to = "/cart" className='button__pay'>Pagar {quantity} productos</Link> : <ItemCount stock={5} initial= {0} onAdd = {handleAdd}/>}
+              
             </div>
         </div>
     )
