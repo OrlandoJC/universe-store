@@ -2,14 +2,22 @@ import './ItemDetail.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import ItemCount from '../ItemCount/ItemCount'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import CartContext from '../context/CartContext'
+
 
 const ItemDetail = ({item}) => {
     const [quantity, setQuantity] = useState(0)
 
-    const handleAdd = (elements) => {
-        setQuantity(elements)
+    const {cart, addToCart} = useContext(CartContext)
+
+    const {id, title, price} = item;
+    console.log(cart)
+
+    const handleAdd = (quantity) => {
+        setQuantity(quantity)
+        addToCart({id, title, price }, quantity)
     }
 
     return (
@@ -44,7 +52,7 @@ const ItemDetail = ({item}) => {
                     </span>
                     <span>10 opiniones</span>
                 </div>
-                { quantity > 0 ? <Link to = "/cart" className='button__pay'>Pagar {quantity} productos</Link> : <ItemCount stock={5} initial= {0} onAdd = {handleAdd}/>}
+                { quantity > 0 ? <Link to = "/cart" className='button__pay'> Ir al carrito</Link> : <ItemCount stock={5} initial= {0} onAdd = {handleAdd}/>}
               
             </div>
         </div>

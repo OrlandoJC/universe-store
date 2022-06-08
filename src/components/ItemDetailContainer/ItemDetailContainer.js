@@ -12,7 +12,6 @@ const ItemDetailContainer = () => {
         getProduct(parseInt(productId))
             .then((result) => {
                 setItem(result)
-                console.log(result)
             })
     }, [])
 

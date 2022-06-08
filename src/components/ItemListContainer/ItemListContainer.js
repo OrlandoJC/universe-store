@@ -8,7 +8,7 @@ const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
 
     const {categoryId } = useParams()
-    console.log(categoryId)
+
     useEffect(() => {
         if (!categoryId) {
             getProducts()
@@ -26,7 +26,6 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <div className="ItemListContainer">
-            <h2 className="title">Productos</h2>
             <ItemList items={products}/>
         </div>
     )
