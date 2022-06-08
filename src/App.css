@@ -12,8 +12,8 @@ body {
 }
 
 .App {
-  width: 80%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -39,7 +39,7 @@ body {
 
 .header__container {
   margin: 0 auto;
-  padding: 10px 5px;
+  padding: 1px 5px;
   display: flex;
   justify-content: space-between;
 }
@@ -48,7 +48,7 @@ body {
   align-self: center;
   display: flex;
   flex-flow: row;
-  gap: 80px;
+  gap: 20px;
   align-items: center;
 }
 
