@@ -1,0 +1,123 @@
+.Cart__container {
+    width: 100%;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "resume summary""resume summary";
+    position: relative;
+}
+
+.Cart__resume {
+    grid-area: resume;
+    border-top: 1px solid rgb(225, 225, 225);
+    border-bottom: 1px solid rgb(225, 225, 225);
+
+    padding: 30px 10px;
+    margin-top: 20px;
+
+}
+
+.Cart__item {
+    display: flex;
+    color: black;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
+    font-size: .9em;
+    margin: 10px 0px;
+}
+
+.Cart__image {
+    border-radius: 10px;
+}
+
+.Cart__summary {
+    grid-area: summary;
+    padding: 20px 60px;
+    background-color: rgb(243, 243, 243);
+    border-radius: 10px;
+    justify-content: space-around;
+    font-size: 1em;
+}
+
+.Item__description {
+    margin-right: 10px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+}
+
+.control__button {
+    margin: 10px;
+    padding: 5px;
+    background: white;
+    border: none;
+    color: black;
+    font-weight: 700;
+    font-size: 1.8em;
+    cursor: pointer;
+}
+
+.control__counter {
+    border: 1px solid gainsboro;
+    padding: 5px 15px;
+}
+
+.flotante {
+    position: absolute;
+    top: 30px;
+}
+
+.delete__button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.delete__button:hover {
+    background-color: rgb(250, 64, 64);
+    color: white;
+    cursor: pointer;
+}
+
+.Cart__message {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.button__continue {
+    background: rgb(52, 126, 201);
+    padding: 10px;
+    border-radius: 10px;
+    border:none;
+    margin: 10px;
+}
+
+.button__continue a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.proceed__button {
+    background: #000;
+    color: white;
+    padding: 20px 10px;
+    justify-self: center;
+    width: 100%;
+}
+
+.Cart__row {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+.price {
+    font-weight: 500;
+}
+

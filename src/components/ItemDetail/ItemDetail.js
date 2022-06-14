@@ -12,12 +12,11 @@ const ItemDetail = ({item}) => {
 
     const {cart, addToCart} = useContext(CartContext)
 
-    const {id, title, price} = item;
-    console.log(cart)
+    const {id, title, price, pictureUrl} = item;
 
     const handleAdd = (quantity) => {
         setQuantity(quantity)
-        addToCart({id, title, price }, quantity)
+        addToCart({id, title, price, pictureUrl}, quantity)
     }
 
     return (
