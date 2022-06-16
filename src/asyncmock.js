@@ -6,7 +6,9 @@ const data = [
         descriptionText : "La playera Nike Sportswear tiene un tejido estilo jersey de alta densidad, elaborada con una mezcla de materiales reciclados. El estampado 'from Beaverton with Love' en el pecho se acentúa con una flor bordada y un logotipo Futura. El estampado Have a Nike Day en la parte inferior de la espalda completa el look.",
         price : 1400,
         pictureUrl : "/images/shirt.jpg",
-        category : "playera"
+        category : "playera",
+        stars : 5,
+        stock : 12
     }, 
     {
         id: 2,
@@ -15,7 +17,9 @@ const data = [
         descriptionText: "Como otros jerseys de nuestra colección Stadium, este combina detalles del diseño tipo réplica con una tela absorbente de sudor para darte un look listo para el partido inspirado en tu equipo favorito. Este producto está fabricado al 100% con fibras de poliéster reciclado.",
         price: 1200,
         pictureUrl : "/images/liverpool.jpg",
-        category : "playera"
+        category : "playera",
+        stars:4,
+        stock:5
     }, 
     {
         id: 3,
@@ -24,8 +28,9 @@ const data = [
         descriptionText : " El diseño reformado de las mangas permite golpear, sacar y tirar por encima de la cabeza sin tener que preocuparte de que la tela se arrugue o te limite en los hombros. El Swoosh celebra su aniversario al unir el pasado y el presente. El Swoosh original aparece sobre la versión actual para representar el camino que ha recorrido Nike. Este producto está fabricado al 100% con fibras de poliéster reciclado",
         price: 1400,
         pictureUrl : "/images/koala.jpg",
-        category : "jersey"
-
+        category : "jersey",
+        stars:3,
+        stock: 13
     }, 
     {
         id: 4,
@@ -34,7 +39,9 @@ const data = [
         descriptionText: "Como otros jerseys de nuestra colección Stadium, este combina detalles del diseño tipo réplica con tecnología absorbente de sudor para darte un look listo para el partido inspirado en tu equipo favorito. Este producto está fabricado al 100% con fibras de poliéster reciclado.",
         price: 1500,
         pictureUrl : "/images/paris.jpg",
-        category : "sudadera"
+        category : "sudadera",
+        stars : 4,
+        stock: 20
     }
 ]
 

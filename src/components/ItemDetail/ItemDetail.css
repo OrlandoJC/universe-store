@@ -27,6 +27,7 @@
 }
 
 .title {
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
@@ -47,7 +48,7 @@
 }
 
 .details {
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 .details span {
