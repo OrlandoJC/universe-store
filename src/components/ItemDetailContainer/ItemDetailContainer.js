@@ -11,7 +11,6 @@ const ItemDetailContainer = () => {
     const { productId } = useParams()
 
     useEffect(() => {
-
         getDoc(doc(db, "products", productId))
             .then(response => {
                 const product = { id: response.id, ...response.data()}
@@ -21,9 +20,8 @@ const ItemDetailContainer = () => {
     }, [productId])
 
     return (
-        <div className="ItemDetailContainer">
+        <div className="ItemDetailContainer container">
             { item && <ItemDetail item = {item} />}
-            
         </div>
     )
 }

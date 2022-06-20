@@ -10,9 +10,13 @@ import { db } from "../../services/firebase"
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
     const { categoryId } = useParams()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const collectionRef = categoryId 
+
+        setLoading(true);
+
+        const collectionRef = categoryId
             ? query(collection(db, "products"), where("category", "==", categoryId))
             : collection(db, "products")
 
@@ -22,6 +26,7 @@ const ItemListContainer = ({ greeting }) => {
                     return { id: doc.id, ...doc.data() }
                 })
                 setProducts(products)
+                setLoading(false);
             }).catch(err => {
                 console.log(err)
             }).finally(() => {
@@ -29,11 +34,18 @@ const ItemListContainer = ({ greeting }) => {
 
     }, [categoryId])
 
-    return (
-        <div className="ItemListContainer">
-            <ItemList items={products} />
-        </div>
-    )
+    if (loading) {
+        return (
+            <h1>Cargando...</h1>
+        )
+    } else {
+        return (
+            <div className="ItemListContainer container">
+                <ItemList items={products} />
+            </div>
+        )
+    }
+
 }
 
 export default ItemListContainer

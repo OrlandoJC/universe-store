@@ -12,7 +12,9 @@ const ItemDetail = ({ item }) => {
 
     const { cart, addToCart } = useContext(CartContext)
 
-    const { id, title, price, pictureUrl, stars } = item;
+    const { id, title, price, pictureUrl, stars, stock} = item;
+
+    console.log(item)
 
     const handleAdd = (quantity) => {
         setQuantity(quantity)
@@ -54,8 +56,10 @@ const ItemDetail = ({ item }) => {
                     <span>10 opiniones</span>
                 </div>
                 { quantity > 0 
-                    ? <Link to="/cart" className='button__pay'> Ir al carrito</Link> 
-                    : <ItemCount stock={5} initial={0} onAdd={handleAdd} /> }
+                    ? <Link 
+                        to={ "/cart"} 
+                        className='button__pay'> Ir al carrito</Link> 
+                    : <ItemCount stock={stock} initial={0} onAdd={handleAdd} /> }
             </div>
         </div>
     )

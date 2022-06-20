@@ -71,3 +71,8 @@
     color: white;
     cursor: pointer;
 }
+
+.button__pay a {
+    text-decoration: none;
+    cursor: pointer;
+}

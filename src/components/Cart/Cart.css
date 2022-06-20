@@ -109,6 +109,11 @@
     padding: 20px 10px;
     justify-self: center;
     width: 100%;
+   
+}
+.proceed{
+    text-decoration: none;
+    color: white;
 }
 
 .Cart__row {

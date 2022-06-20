@@ -30,6 +30,10 @@
     color: white;
     padding: 10px;
     border-radius: 10px;
-    /* width: 80%; */
+    cursor: pointer;
     text-align: center;
+}
+
+.addTocart--button a{
+    cursor: pointer;
 }

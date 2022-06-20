@@ -3,15 +3,17 @@ import CartContext from '../context/CartContext'
 import { useContext } from 'react'
 import CartItem from '../CartItem/CartItem'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../context/authContext'
 
 const Cart = () => {
     const { cart, totalProducts, totalPrice } = useContext(CartContext)
+    const { user } = useContext(AuthContext)
 
     const itemsTotal = totalProducts();
     const totalCart = totalPrice();
 
     return (
-        <div className='Cart'>
+        <div className='Cart container'>
             <h1>Carrito</h1>
             {
                 itemsTotal === 0
@@ -39,7 +41,7 @@ const Cart = () => {
                                 <p className='price'> $0 MXN </p>
                             </div>
                             <button className='proceed__button'>
-                                Proceder al pago
+                                <Link to ={ user ? "/checkout" : "/login/?redirect=checkout"} className="proceed"> Proceder al pago</Link>
                             </button>
                         </div>
                     </div>
