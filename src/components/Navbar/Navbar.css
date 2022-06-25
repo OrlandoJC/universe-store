@@ -1,6 +1,7 @@
 header {
-    font-size: 1.1rem;
+    font-size: 1rem;
     border-bottom: 1px solid rgb(240, 240, 240);
+    background-color: ghostwhite;
 }
 
 .logo {
@@ -14,9 +15,11 @@ header {
 
 .logo__text {
     text-decoration: none;
-    color: rgb(0, 0, 0);
     font-style: italic;
     font-weight:900;
+    background: black;
+    color: white;
+    padding: 5px;
 }
 
 
@@ -41,6 +44,7 @@ header {
     text-decoration: none;
     color: black;
     font-size: 1.1em;
+    font-weight: 800;
 }
 
 .header__bar {
@@ -50,7 +54,9 @@ header {
 
 .icon {
     margin: 0 20px;
+    color: black;
 }
+
 
 .avatar {
     display: inline-block;
@@ -69,4 +75,8 @@ header {
     padding: 10px;
     justify-content: center  ;
     font-size: .9em;
+}
+
+.icon-navbar {
+    color: black
 }

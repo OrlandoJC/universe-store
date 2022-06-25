@@ -8,8 +8,11 @@ import {
     createUserWithEmailAndPassword,
     sendPasswordResetEmail,
     signOut,
+    updateProfile,
+    browserSessionPersistence,
+    browserLocalPersistence,
 } from "firebase/auth";
-import { addDoc, collection, getDocs, where, query, getFirestore } from "firebase/firestore";
+import { addDoc, collection, getDocs, where, query, getFirestore, setDoc, doc } from "firebase/firestore";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -18,9 +21,11 @@ const auth = getAuth(app)
 
 export const AuthContext = createContext()
 
+
 export const AuthContextProvider = ({ children }) => {
     const [user, loading, error] = useAuthState(auth)
     const [errorMessage, setErrorMessage] = useState()
+    const [profileUpdate, setProfileUpdate] = useState(false)
 
     const signInWithGoogle = async () => {
         try {
@@ -30,11 +35,14 @@ export const AuthContextProvider = ({ children }) => {
             const docs = await getDocs(q)
 
             if (docs.docs.length === 0) {
-                await addDoc(collection(db, "users"), {
+                await setDoc(doc(db, "users", user.uid), {
                     uid: user.uid,
                     name: user.displayName,
                     authProvider: "google",
                     email: user.email,
+                    address : "",
+                    postal: "",
+                    phone : ""
                 });
             }
         } catch (err) {
@@ -46,15 +54,31 @@ export const AuthContextProvider = ({ children }) => {
         try {
             const res = await createUserWithEmailAndPassword(auth, email, password)
             const user = res.user;
-            await addDoc(collection(db, "users"), {
+            
+            await setDoc(doc(db, "users", user.uid), {
                 uid: user.uid,
-                name,
+                name : name,
                 authProvider: "local",
                 email,
+                phone : "",
+                address :"",
+                postal: ""
             })
+
+            await updateProfile(auth.currentUser, {
+                displayName: user.displayName ? user.displayName : name,
+                photoURL : user.photoURL ? user.photoURL : "https://liumater.sirv.com/Deafult-Profile-Pitcher.png"  
+            })
+
         } catch (err) {
             setErrorMessage(err.message)
         }
+    }
+
+    const updateImageProfile = async (url) => {
+        await updateProfile(auth.currentUser, {
+            photoURL : url  
+        })
     }
 
     const signIn = async (email, password) => {
@@ -70,7 +94,14 @@ export const AuthContextProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ signInWithGoogle, user, loading, errorMessage, logOut, register, signIn, error }}>
+        <AuthContext.Provider value={{ 
+            signInWithGoogle, 
+            user, 
+            loading, 
+            errorMessage, 
+            logOut, 
+            register, 
+            signIn, error, updateImageProfile, profileUpdate, setProfileUpdate }}>
             {children}
         </AuthContext.Provider>
     )

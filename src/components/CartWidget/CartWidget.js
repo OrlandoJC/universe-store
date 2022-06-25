@@ -8,7 +8,7 @@ const CartWidget = ({ items }) => {
         <div className="cart" id="cart">
             <div>
                 <Link to="/cart">
-                    <FontAwesomeIcon icon={faCartShopping} />  <span id="cart__counter">{items}</span>
+                    <FontAwesomeIcon  className="cart__counter" icon={faCartShopping} />  <span className="cart__counter">{items}</span>
                 </Link>
             </div>
         </div>

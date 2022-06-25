@@ -14,10 +14,11 @@ import MenuItem from '@mui/material/MenuItem';
 
 
 const Navbar = () => {
-    const { cart, totalProducts } = useContext(CartContext)
+    const { cart, totalProducts} = useContext(CartContext)
     const { user, logOut } = useContext(AuthContext)
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -37,10 +38,10 @@ const Navbar = () => {
 
     return (
         <header className="header">
-            <div className='message'>Envios a toda la republica mexicana </div>
+            <div className='message'>Envios a toda la republica mexicana  🛩️✈️</div>
             <div className="header__container container">
                 <div className="logo">
-                    <span ><Link to="/" className='logo__text'> UNIVERSE-STORE </Link></span>
+                    <span ><Link to="/" className='logo__text'>  UNIVERSE-STORE  </Link> </span>
                 </div>
                 <div className='header__categories'>
                     <ul>
@@ -59,7 +60,7 @@ const Navbar = () => {
                                 ? <span className="avatar">
                                     <Avatar
                                         alt="Remy Sharp"
-                                        src={user.providerData[0].photoURL}
+                                        src={user.photoURL}
                                         sx={{ width: 24, height: 24 }}
                                         id="basic-button"
                                         aria-controls={open ? 'basic-menu' : undefined}
@@ -75,8 +76,7 @@ const Navbar = () => {
                                         MenuListProps={{
                                             'aria-labelledby': 'basic-button',
                                         }}>
-                                        <MenuItem onClick={handleClose}>Perfil</MenuItem>
-                                        <MenuItem onClick={handleClose}>Mi Cuenta</MenuItem>
+                                        <MenuItem onClick={handleClose}><Link to ="/profile" className='icon-navbar'>Perfil</Link></MenuItem>
                                         <MenuItem onClick={onLogout}>Salir</MenuItem>
                                     </Menu>
                                 </span>

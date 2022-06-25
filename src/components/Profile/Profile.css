@@ -1,0 +1,145 @@
+.Profile {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr auto;
+  padding-top: 10px;
+  margin-top: 50px;
+  grid-template-areas: 
+  "image form"
+  "image orders";
+}
+
+.Profile-image {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  grid-area: image;
+}
+
+.Profile-form {
+  grid-area: form;
+}
+
+.Profile-orders {
+  grid-area: orders;
+  margin-top: 20px;
+}
+
+.Profile-orders h2 {
+  margin-bottom: 10px;
+}
+
+.Profile-image img {
+  border-radius: 50%;
+  position: relative;
+
+}
+
+.Profile-resume {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.Profile-form form {
+  right: 0;
+  display: block;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.Profile-form form label {
+  margin-right: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.Profile-form form input {
+  padding: 6px;
+  border-radius: 20px;
+  border: 1px solid gray;
+  margin-right: 10px;
+}
+
+.email {
+  font-size: .9em;
+  color: rgb(137, 137, 137);
+}
+
+.block_element {
+  display: block;
+}
+
+.button-container {
+  margin-top: 40px;
+}
+
+.Toastify__toast-container {
+  width: 320px;
+}
+
+.Toastify__toast--default {
+  background: #fff;
+  color: #aaa;
+}
+
+.Toastify__toast--info {
+  background: purple;
+}
+
+.Toastify__toast--success {
+  background: rgb(26, 203, 32) !important;
+  color: white !important;
+}
+
+.Toastify__toast--warning {
+  background: yellow;
+}
+
+.Toastify__toast--error {
+  background: rgb(202, 40, 40);
+  color: white;
+}
+
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  padding: 10px;
+}
+
+.inputfile + label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: rgb(92, 90, 181);
+}
+
+.input-file {
+  position: absolute;
+   bottom: 0;
+  right: 3px;
+  font-size: 3rem;
+  padding: 10px;
+}
+
+.Profile-container {
+  position: relative;
+}
+
+.input-icon {
+  font-size: 1.5rem;
+}

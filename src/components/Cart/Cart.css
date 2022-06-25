@@ -61,6 +61,15 @@
     cursor: pointer;
 }
 
+.Cart__message h1 {
+    color: #454242;
+  
+}
+
+
+.Cart__message {
+    flex-grow: 1;
+}
 .control__counter {
     border: 1px solid gainsboro;
     padding: 5px 15px;
@@ -90,11 +99,12 @@
 }
 
 .button__continue {
-    background: rgb(52, 126, 201);
+    background: #141414;
     padding: 10px;
     border-radius: 10px;
-    border:none;
+    border: none;
     margin: 10px;
+    font-size: 1.1rem;
 }
 
 .button__continue a {
@@ -109,9 +119,10 @@
     padding: 20px 10px;
     justify-self: center;
     width: 100%;
-   
+    margin-bottom: 10px;
 }
-.proceed{
+
+.proceed {
     text-decoration: none;
     color: white;
 }
@@ -126,3 +137,6 @@
     font-weight: 500;
 }
 
+a {
+    color: black;
+}

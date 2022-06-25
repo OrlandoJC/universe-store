@@ -1,0 +1,14 @@
+
+.Success {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.Success-image {
+    max-width: 500px;
+    width: 90%;
+
+}

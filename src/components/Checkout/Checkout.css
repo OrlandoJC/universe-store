@@ -1,0 +1,10 @@
+.Checkout {
+    margin-top: 20px;
+}
+
+.Checkout-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 170px;
+}

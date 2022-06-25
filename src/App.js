@@ -9,6 +9,11 @@ import Login from './components/Login/Login';
 import AuthContextProvider from './components/context/authContext';
 import Profile from './components/Profile/Profile';
 import Checkout from './components/Checkout/Checkout';
+import Success from './components/Success/Success';
+import Footer from './components/Footer/Footer';
+import OrdersHistory from './components/OrdersHistory/OrdersHistory';
+import RequireAuth from './components/context/RequireAuth';
+import PageError from './components/PageError/PageError';
 
 function App() {
   return (
@@ -23,9 +28,11 @@ function App() {
               <Route exact path='/item/:productId' element={<ItemDetailContainer />} />
               <Route exact path='/cart' element={<Cart />} />
               <Route exact path='/login' element={<Login />} />
-              <Route exact path='/profile' element={<Profile />} />
+              <Route exact path='/profile' element={<RequireAuth> <Profile /></RequireAuth>} />
               <Route exact path='/checkout' element={<Checkout />} />
-              <Route exact path='*' element={<h1>Page not found</h1>} />
+              <Route exact path='/success/' element={<Success />} />
+              <Route exact path='/orders/:orderId' element={<RequireAuth><OrdersHistory /></RequireAuth>} />
+              <Route exact path='*' element={<PageError />} />
             </Routes>
           </BrowserRouter>
         </CartContextProvider>

@@ -7,6 +7,10 @@ import { useParams } from "react-router-dom"
 import { getDocs, collection, query, where } from "firebase/firestore"
 import { db } from "../../services/firebase"
 
+import { Alert, AlertTitle, Box, Button, Link, Breadcrumbs, Typography } from "@mui/material";
+import { HashLoader } from "react-spinners"
+
+
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
     const { categoryId } = useParams()
@@ -35,12 +39,20 @@ const ItemListContainer = ({ greeting }) => {
     }, [categoryId])
 
     if (loading) {
-        return (
-            <h1>Cargando...</h1>
-        )
+        return <div className="container Checkout-loading">
+           <HashLoader className="loader"  loading={loading} size={50} />
+        </div>
     } else {
         return (
             <div className="ItemListContainer container">
+                {
+                    categoryId && <Box m={2}>
+                        <Breadcrumbs aria-label='breadcumb'>
+                            <Link underline="hover" color="inherit">Inicio</Link>
+                            <Link underline="hover" color="inherit">{categoryId  + 's'}</Link>
+                        </Breadcrumbs>
+                    </Box>
+                }
                 <ItemList items={products} />
             </div>
         )

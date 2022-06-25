@@ -14,8 +14,6 @@ const ItemDetail = ({ item }) => {
 
     const { id, title, price, pictureUrl, stars, stock} = item;
 
-    console.log(item)
-
     const handleAdd = (quantity) => {
         setQuantity(quantity)
         addToCart({ id, title, price, pictureUrl }, quantity)
@@ -60,6 +58,8 @@ const ItemDetail = ({ item }) => {
                         to={ "/cart"} 
                         className='button__pay'> Ir al carrito</Link> 
                     : <ItemCount stock={stock} initial={0} onAdd={handleAdd} /> }
+
+                        <span className='ItemDetail-favoritos'>Favoritos 😍</span>
             </div>
         </div>
     )

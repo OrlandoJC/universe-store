@@ -17,9 +17,14 @@ const Login = () => {
 
     useEffect(() => {
         if (user) {
-            if (searchParams.get("redirect")) {
+            if (searchParams.get("redirect") && !searchParams.get("id")) {
                 const to = searchParams.get("redirect")
                 navigate("/" + to, { replace: true });
+            } else if (searchParams.get("redirect") && searchParams.get("id")) {
+                const to = searchParams.get("redirect")
+                const id = searchParams.get("id")
+
+                navigate("/" + to + "/" +  id, { replace: true });
             } else {
                 navigate("/", { replace: true })
             }
@@ -77,7 +82,7 @@ const Login = () => {
                 <div className="forms-container">
                     <div className="signin-signup">
                         <form action="#" className="sign-in-form">
-                            <h2 className="title">Sign in</h2>
+                            <h2 className="title">Entrar</h2>
                             <div className="input-field">
                                 <i className="fas fa-user"></i>
                                 <input type="text" placeholder="Username" value={name} onChange={(e) => setName(e.target.value)} />
@@ -90,24 +95,17 @@ const Login = () => {
                             {
                                 errorAuth && < Alert severity="error">{errorAuth}</Alert>
                             }
-                            <p className="social-text">Or Sign in with social platforms</p>
+                            <p className="social-text">O entra con tu cuenta de google</p>
                             <div className="social-media">
-                                <a href="#" className="social-icon">
-                                    <i className="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#" className="social-icon">
-                                    <i className="fab fa-twitter"></i>
-                                </a>
+
                                 <a href="#" className="social-icon" onClick={signInWithGoogle}>
                                     <i className="fab fa-google"></i>
                                 </a>
-                                <a href="#" className="social-icon">
-                                    <i className="fab fa-linkedin-in"></i>
-                                </a>
+
                             </div>
                         </form>
                         <form action="#" className="sign-up-form">
-                            <h2 className="title">Sign up</h2>
+                            <h2 className="title">Registro</h2>
                             <div className="input-field">
                                 <i className="fas fa-user"></i>
                                 <input type="text" placeholder="Username" value={name} onChange={(e) => setName(e.target.value)} />
@@ -120,10 +118,10 @@ const Login = () => {
                                 <i className="fas fa-lock"></i>
                                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
-                            <input type="submit" className="btn" value="Sign up" onClick={onRegister} />
-                            <p className="social-text">Or Sign up with social platforms</p>
+                            <input type="submit" className="btn" value="Registrarme" onClick={onRegister} />
+                            <p className="social-text">O registrarte con tu cuenta de google</p>
                             <div className="social-media">
-                                <a href="#" className="social-icon">
+                                <a href="#" className="social-icon" onClick={signInWithGoogle}>
                                     <i className="fab fa-google"></i>
                                 </a>
 
@@ -152,7 +150,7 @@ const Login = () => {
                                 Entra para seguir comprando
                             </p>
                             <button className="btn transparent" id="sign-in-btn" onClick={() => { changeForm("") }}>
-                                Sign in
+                                Entrar
                             </button>
                         </div>
                         <img src="img/register.svg" className="image" alt="" />

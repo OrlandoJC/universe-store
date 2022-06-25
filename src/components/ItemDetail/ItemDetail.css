@@ -76,3 +76,11 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.ItemDetail-favoritos  {
+    background: #000;
+    padding: 10px;
+    color: white;
+    margin-left: 10px;
+    border-radius: 10px;
+}

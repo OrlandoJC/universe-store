@@ -1,0 +1,19 @@
+.PageError {
+    background-color: #130c2b;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.container_image img {
+    width: 800px;
+    max-width: 95%
+}
+
+.container_image {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
