@@ -24,7 +24,7 @@ const Footer = () => {
                                 <li className='uppercased'>Obtener ayuda</li>
                                 <li className='gray'>Pedidos</li>
                                 <li className='gray'>Informacion de envios</li>
-                                <li className='gray'>Opciones de pago</li>
+                                <li className='gray'>Opciones de pago </li>
                             </ul>
                         </Grid>
                         <Grid item xs={4}>
