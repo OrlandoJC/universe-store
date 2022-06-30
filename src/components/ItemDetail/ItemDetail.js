@@ -9,9 +9,7 @@ import CartContext from '../context/CartContext'
 
 const ItemDetail = ({ item }) => {
     const [quantity, setQuantity] = useState(0)
-
     const { cart, addToCart } = useContext(CartContext)
-
     const { id, title, price, pictureUrl, stars, stock} = item;
 
     const handleAdd = (quantity) => {
@@ -59,7 +57,7 @@ const ItemDetail = ({ item }) => {
                         className='button__pay'> Ir al carrito</Link> 
                     : <ItemCount stock={stock} initial={0} onAdd={handleAdd} /> }
 
-                        <span className='ItemDetail-favoritos'>Favoritos 😍</span>
+                <span className='ItemDetail-favoritos'>Favoritos 😍</span>
             </div>
         </div>
     )

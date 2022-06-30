@@ -8,17 +8,31 @@ import { useContext, useState } from 'react'
 import CartContext from '../context/CartContext'
 import { AuthContext } from '../context/authContext'
 import { Avatar } from '@mui/material'
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-
+import { useEffect } from 'react'
+import { onSnapshot, doc } from 'firebase/firestore'
+import { db } from '../../services/firebase'
 
 const Navbar = () => {
-    const { cart, totalProducts} = useContext(CartContext)
+    const { totalProducts } = useContext(CartContext)
     const { user, logOut } = useContext(AuthContext)
     const [anchorEl, setAnchorEl] = useState(null);
+    const [imageUpdated, setImageUpdated] = useState(null);
     const open = Boolean(anchorEl);
 
+    useEffect(() => {
+        if (user) {
+            const unsub = onSnapshot(doc(db, "users", user.uid), (doc) => {
+                const profilePicture = doc.data().photoUrl;
+                setImageUpdated(profilePicture)
+            })
+
+            return () => {
+                unsub()
+            }
+        }
+    }, [user])
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -60,7 +74,7 @@ const Navbar = () => {
                                 ? <span className="avatar">
                                     <Avatar
                                         alt="Remy Sharp"
-                                        src={user.photoURL}
+                                        src={imageUpdated ? imageUpdated : user.photoURL}
                                         sx={{ width: 24, height: 24 }}
                                         id="basic-button"
                                         aria-controls={open ? 'basic-menu' : undefined}
@@ -76,7 +90,7 @@ const Navbar = () => {
                                         MenuListProps={{
                                             'aria-labelledby': 'basic-button',
                                         }}>
-                                        <MenuItem onClick={handleClose}><Link to ="/profile" className='icon-navbar'>Perfil</Link></MenuItem>
+                                        <MenuItem onClick={handleClose}><Link to="/profile" className='icon-navbar'>Perfil</Link></MenuItem>
                                         <MenuItem onClick={onLogout}>Salir</MenuItem>
                                     </Menu>
                                 </span>

@@ -2,16 +2,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Profile.css'
 import { useContext, useEffect, useRef, useState } from "react"
-import { Navigate, useNavigate, Link } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { AuthContext } from "../context/authContext"
 import { getProfile, updateDataProfile } from '../../services/firebase/queries'
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 import { Upload } from 'upload-js';
-import { IoEye } from "react-icons/io5";
 import { BiPencil } from 'react-icons/bi'
-
 import Table from '@mui/material/Table';
+import Button from '@mui/material/Button';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
@@ -21,12 +18,12 @@ import Paper from '@mui/material/Paper';
 
 const Profile = () => {
     const { user, updateImageProfile, setProfileUpdate } = useContext(AuthContext)
-    const [address, setAddress] = useState("")
-    const [postal, setPostal] = useState("")
-    const [phone, setPhone] = useState("")
-    const [image, setImage] = useState("")
-    const [isEditing, setIsEditing] = useState(false)
-    const [orders, setOrders] = useState([])
+    const [ address, setAddress ] = useState("")
+    const [ postal, setPostal ] = useState("")
+    const [ phone, setPhone ] = useState("")
+    const [ image, setImage ] = useState("")
+    const [ isEditing, setIsEditing ] = useState(false)
+    const [ orders, setOrders ] = useState([])
     const [updatingProfilePic, setUpdatingProfilePic] = useState(false)
     const toastId = useRef(null);
 
@@ -37,9 +34,9 @@ const Profile = () => {
         type: "success",
         autoClose: 5000,
         className: 'rotateY animated',
-        delay:1000,
-        isLoading:false,
-        closeButton:true
+        delay: 1000,
+        isLoading: false,
+        closeButton: true
     });
 
     let navigate = useNavigate()
@@ -56,8 +53,8 @@ const Profile = () => {
                     setImage(user.providerData[0].photoURL)
                     setOrders(orders)
 
-                    if (profile.address == "" || profile.postal == "" || profile.phone == "") {
-                        console.log("actualiza tus datos")
+                    if (profile.address === "" || profile.postal === "" || profile.phone === "") {
+                
                     }
                 })
         }
@@ -92,7 +89,7 @@ const Profile = () => {
     }
 
     const changePhoto = async (event) => {
-        const upload = new Upload({ apiKey: "public_kW15asJ8y4jh1mJAuGaN9dQTU9Zo" });
+        const upload = new Upload({ apiKey: process.env.REACT_APP_sirvKey });
         const [file] = event.target.files;
 
         setUpdatingProfilePic(true)
@@ -106,8 +103,6 @@ const Profile = () => {
                 setUpdatingProfilePic(true)
                 updateAlert("Foto de perfil cambiada 😍")
             })
-
-        setProfileUpdate(true)
     }
 
     if (!user) {
@@ -118,8 +113,7 @@ const Profile = () => {
         <div className="container Profile">
             <div className='Profile-image'>
                 <div className='Profile-container'>
-
-                    <img src={user ? user.photoURL : ""} width={180} height={180} style={{ objectFit: "cover" }}></img>
+                    <img src={user ? user.photoURL : ""} width={180} height={180} style={{ objectFit: "cover" }} alt="profile "></img>
                     <input type="file" name="file" id="file" className="inputfile" onChange={changePhoto} />
                     <label htmlFor="file" className='input-file'><BiPencil className='input-icon' /></label>
                 </div>

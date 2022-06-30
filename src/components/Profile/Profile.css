@@ -4,9 +4,10 @@
   grid-template-rows: 1fr auto;
   padding-top: 10px;
   margin-top: 50px;
-  grid-template-areas: 
-  "image form"
-  "image orders";
+  grid-template-areas:
+    "image form"
+    "image orders";
+  margin-bottom: 100px;
 }
 
 .Profile-image {
@@ -111,7 +112,7 @@
   padding: 10px;
 }
 
-.inputfile + label {
+.inputfile+label {
   font-weight: 700;
   font-size: 1rem;
   color: white;
@@ -123,14 +124,14 @@
 
 }
 
-.inputfile:focus + label,
-.inputfile + label:hover {
+.inputfile:focus+label,
+.inputfile+label:hover {
   background-color: rgb(92, 90, 181);
 }
 
 .input-file {
   position: absolute;
-   bottom: 0;
+  bottom: 0;
   right: 3px;
   font-size: 3rem;
   padding: 10px;

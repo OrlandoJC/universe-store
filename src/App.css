@@ -90,3 +90,14 @@ body {
 .cart .cart__counter {
   margin-left: 2px;
 }
+
+/* todo */
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {}
+
+@media (max-width: 1200px) {
+  .hedaer__finder {
+    display: none;
+  }
+}

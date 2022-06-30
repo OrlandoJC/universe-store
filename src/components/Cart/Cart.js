@@ -1,10 +1,9 @@
 import './Cart.css'
-import { useContext, useState} from 'react'
-import CartContext from '../context/CartContext'
-import { AuthContext } from '../context/authContext'
-import CartItem from '../CartItem/CartItem'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
+import { AuthContext } from '../context/authContext'
+import CartContext from '../context/CartContext'
+import CartItem from '../CartItem/CartItem'
 
 const Cart = () => {
     const { cart, totalProducts, totalPrice } = useContext(CartContext)
@@ -44,37 +43,6 @@ const Cart = () => {
                             <button className='proceed__button'>
                                 <Link to={user ? "/checkout" : "/login/?redirect=checkout"} className="proceed"> Proceder al pago</Link>
                             </button>
-                            {/* <PayPalScriptProvider
-                                options={{ "client-id": "AaODT2ljM--tWSg_szSgbZIahDpTvaG0k5R6PzXDLhQitmmDC7EuNIuRGeXKy1_AJ6x5r-MalIKz3Pmq" }}>
-                                <PayPalButtons
-
-                                    createOrder={(data, actions) => {
-                                        return actions.order.create(
-                                            {
-                                                description: "lol",
-                                                purchase_units: [{
-                                                    amount: {
-                                                        currency_code: "MXN",
-                                                        value: totalPrice()
-                                                    }
-                                                }],
-                                                application_context: {
-                                                    shipping_preference: "NO_SHIPPING"
-                                                }
-                                            }
-                                        )
-                                    }}
-
-                                    onError={(err) => {
-                                        console.log(err)
-                                    }}
-
-                                    onApprove={(data, actions) => {
-                                        return actions.order.capture().then(function (details) {
-                                            alert('Transaction completed by ' + details.payer.name.given_name);
-                                        });
-                                    }} />
-                            </PayPalScriptProvider> */}
                         </div>
                     </div>
             }

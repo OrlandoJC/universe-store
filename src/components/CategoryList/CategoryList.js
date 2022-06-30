@@ -1,22 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSoccerBall } from "@fortawesome/free-solid-svg-icons"
 
-const CategoryList = () => {
+const CategoryList = ({categories}) => {
     return (
         <>
             {
-                props.categories
-                    .map(category => <div className="category"> <FontAwesomeIcon icon = {faSoccerBall}/> </div>)
+                categories
+                    .map(category => <div className="category"> kdwlñkleñd</div>)
             }
         </>
     )
-}
-
-CategoryList.defaultProps = {
-    categories: [
-        { name: "casual", icon: "" }, 
-        { name: "depor", icon: "d" }
-    ]
 }
 
 

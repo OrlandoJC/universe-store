@@ -1,17 +1,14 @@
 import './Item.css'
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart} from '@fortawesome/free-regular-svg-icons'
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext';
 import { updateFavorites } from '../../services/firebase/queries';
-import { FaHeart, FaRegHeart} from 'react-icons/fa'
+import { FaRegHeart} from 'react-icons/fa'
 
 const Item = ({ item }) => {
     const {user} = useContext(AuthContext)
 
     const addTofavorite = () => {
-        console.log(user.uid)
         updateFavorites(user.uid, item.id)
     }
 
@@ -25,7 +22,6 @@ const Item = ({ item }) => {
                 <p className='Item__description'> {item.description}</p>
                 <p className='Item__price'>$ {item.price} MXN</p>
                 <span className='button--open'> <Link to={`/item/${item.id}`} >Ver detalle ✨</Link>    </span>
-                <FontAwesomeIcon icon="fa-solid fa-heart" />
                 
             </div>
         </div>

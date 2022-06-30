@@ -1,14 +1,4 @@
-import {
-    doc,
-    updateDoc,
-    arrayUnion,
-    arrayRemove,
-    collection,
-    where,
-    getDocs,
-    query,
-    addDoc
-} from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, collection, where, getDocs, query, addDoc, getDoc} from "firebase/firestore";
 import { db } from './index'
 
 export const updateFavorites = async (userId, favoriteId) => {
@@ -59,8 +49,6 @@ export const getProfile = async (uid) => {
     }
 }
 
-
-
 export const saveOrder = async (orderDetails) => {
     try {
         const collectionRef = collection(db, 'orders')
@@ -69,4 +57,18 @@ export const saveOrder = async (orderDetails) => {
     } catch(err) {
         console.log(err)
     }
+}
+
+export const getByCategory = (categoryId) => {
+    const collectionRef = categoryId
+        ? query(collection(db, "products"), where("category", "==", categoryId))
+        : collection(db, "products")
+
+    return getDocs(collectionRef)
+}
+
+export const getProductById = (productId) => {
+    const collectionRef = doc(db, "products", productId)
+
+    return getDoc(collectionRef);
 }

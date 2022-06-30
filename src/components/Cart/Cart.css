@@ -1,3 +1,8 @@
+.Cart {
+    flex-grow: 1;
+    padding-bottom: 50px;
+}
+
 .Cart__container {
     width: 100%;
     margin: 10px auto;

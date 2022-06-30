@@ -34,10 +34,10 @@ function App() {
               <Route exact path='/orders/:orderId' element={<RequireAuth><OrdersHistory /></RequireAuth>} />
               <Route exact path='*' element={<PageError />} />
             </Routes>
+            <Footer />
           </BrowserRouter>
         </CartContextProvider>
       </AuthContextProvider>
-
     </div>
   );
 }

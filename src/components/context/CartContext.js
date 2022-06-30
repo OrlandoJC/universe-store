@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 
-
 const CartContext = createContext()
 
 export const CartContextProvider = ({ children }) => {
@@ -17,15 +16,15 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const incrementItem = (id) => {
-        setCart(cart.map(item => item.id == id ? { ...item, quantity: item.quantity + 1 } : item))
+        setCart(cart.map(item => item.id === id ? { ...item, quantity: item.quantity + 1 } : item))
         const cartJson = JSON.parse(localStorage.getItem("cart"));
-        localStorage.setItem("cart", JSON.stringify(cartJson.map(item => item.id == id ? { ...item, quantity: item.quantity + 1 } : item)))
+        localStorage.setItem("cart", JSON.stringify(cartJson.map(item => item.id === id ? { ...item, quantity: item.quantity + 1 } : item)))
     }
 
     const decrementItem = (id) => {
-        setCart(cart.map(item => item.id == id ? { ...item, quantity: item.quantity - 1 } : item))
+        setCart(cart.map(item => item.id === id ? { ...item, quantity: item.quantity - 1 } : item))
         const cartJson = JSON.parse(localStorage.getItem("cart"));
-        localStorage.setItem("cart", JSON.stringify(cartJson.map(item => item.id == id ? { ...item, quantity: item.quantity - 1 } : item)))
+        localStorage.setItem("cart", JSON.stringify(cartJson.map(item => item.id === id ? { ...item, quantity: item.quantity - 1 } : item)))
     }
 
     const addToCart = (item, quantity) => {
@@ -51,9 +50,6 @@ export const CartContextProvider = ({ children }) => {
     const removeItem = (id) => {
         setCart(cart.filter(product => product.id !== id))
         const cartJson = JSON.parse(localStorage.getItem("cart"));
-
-        console.log("ojl")
-
         localStorage.setItem("cart", JSON.stringify(cartJson.filter(product => product.id !== id)))
     }
 

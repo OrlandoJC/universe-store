@@ -1,7 +1,7 @@
 import './Login.css'
 import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../context/authContext"
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import Alert from '@mui/material/Alert'
 
 const Login = () => {
@@ -24,7 +24,7 @@ const Login = () => {
                 const to = searchParams.get("redirect")
                 const id = searchParams.get("id")
 
-                navigate("/" + to + "/" +  id, { replace: true });
+                navigate("/" + to + "/" + id, { replace: true });
             } else {
                 navigate("/", { replace: true })
             }
@@ -40,14 +40,6 @@ const Login = () => {
         }
     }, [errorMessage])
 
-    const login = async () => {
-        await signInWithGoogle()
-    }
-
-    const logout = () => {
-        logOut()
-    }
-
     const changeForm = (type) => {
         setFormMode(type)
     }
@@ -56,7 +48,7 @@ const Login = () => {
         e.preventDefault()
 
         if (formMode === "sign-up-mode") {
-            if (user != "" && email != "" && password != "") {
+            if (user !== "" && email !== "" && password !== "") {
                 await register(name, email, password)
                 setEmail("")
                 setPassword("")
@@ -124,7 +116,6 @@ const Login = () => {
                                 <a href="#" className="social-icon" onClick={signInWithGoogle}>
                                     <i className="fab fa-google"></i>
                                 </a>
-
                             </div>
                         </form>
                     </div>

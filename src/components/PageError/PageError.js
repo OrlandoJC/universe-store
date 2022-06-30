@@ -1,4 +1,5 @@
 import './PageError.css'
+
 const PageError = () => {
     return (
         <div className="PageError">
@@ -9,6 +10,5 @@ const PageError = () => {
         </div>
     )
 }
-
 
 export default PageError

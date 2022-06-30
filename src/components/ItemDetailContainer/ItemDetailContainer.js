@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import { getDoc, doc } from "firebase/firestore"
-import { db } from "../../services/firebase"
 import { ClipLoader } from "react-spinners"
+import { getProductById } from "../../services/firebase/queries"
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState()
@@ -13,7 +12,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        getDoc(doc(db, "products", productId))
+        getProductById(productId)
             .then(response => {
                 const product = { id: response.id, ...response.data() }
 
@@ -28,7 +27,7 @@ const ItemDetailContainer = () => {
     }, [productId])
 
     if (loading) {
-        return <div className="container Checkout-loading">
+        return <div className=" container Checkout-loading">
             <ClipLoader className="loader" loading={loading} size={180} />
          </div>
     } else {
@@ -42,7 +41,8 @@ const ItemDetailContainer = () => {
                         backgroundColor: "lavender",
                         justifyContent: "center",
                         flexGrow: 1,
-                        color: "#191970c7"
+                        color: "#191970c7",
+                        paddingBottom:"100px"
                     }}>
                     <img src="/images/search.png" style={{ textAlign: "center" }} width="660" alt="" />
                     <h1>El producto que buscas no existe</h1>
