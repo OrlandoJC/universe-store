@@ -76,6 +76,7 @@ Insert gif or link to demo
 ![Demo](https://i.ibb.co/JRJnGgw/2022-07-01-08h13-49.png)
 ![Demo](https://i.ibb.co/QQ5MX1b/2022-07-01-08h14-07.png)
 ![Demo](https://i.ibb.co/5WWNKtQ/2022-07-01-08h17-44.png)
+![Demo](https://i.ibb.co/s6fQfhm/2022-07-21-17h26-48.png)
 
 Online demo 🔥https://universe-store.vercel.app/
 
