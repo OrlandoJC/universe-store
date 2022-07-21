@@ -19,6 +19,7 @@ const ItemListContainer = ({ greeting }) => {
                 const products = response.docs.map(doc => ({ id: doc.id, ...doc.data() }))
                 setProducts(products)
                 setLoading(false);
+                console.log(products)
             }).catch(err => {
 
             }).finally(() => {

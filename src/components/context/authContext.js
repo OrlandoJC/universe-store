@@ -1,8 +1,9 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { auth, db } from "../../services/firebase"
 import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { collection, getDocs, where, query, setDoc, doc, updateDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -12,6 +13,15 @@ export const AuthContextProvider = ({ children }) => {
     const [user, loading, error] = useAuthState(auth)
     const [errorMessage, setErrorMessage] = useState()
     const [profileUpdate, setProfileUpdate] = useState(false)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        auth.onAuthStateChanged((user)=> {
+            if(!user) {
+                navigate("/")
+            }
+        })
+    }, [])
 
     const signInWithGoogle = async () => {
         try {

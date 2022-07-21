@@ -26,7 +26,9 @@ header {
 .header__container {
     display: flex;
     align-items: center;
+    position: relative;
 }
+
 
 .header__categories ul li {
     list-style: none;
@@ -80,3 +82,15 @@ header {
 .icon-navbar {
     color: black
 }
+
+/* 
+
+.panel-responsive {
+    position:absolute;
+    z-index: 1;
+    top:0;
+    height: 100vh;
+    width: 100%;
+    display: block;
+    display: flex;
+} */

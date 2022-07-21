@@ -1,12 +1,39 @@
-import { doc, updateDoc, arrayUnion, collection, where, getDocs, query, addDoc, getDoc} from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, collection, where, getDocs, query, addDoc, getDoc, FieldPath, documentId } from "firebase/firestore";
 import { db } from './index'
+
+
+export const getFavorites = async (userId, page) => {
+    const collectionRef = doc(db, "users", userId)
+    const favoriteItems = []
+    try {
+        const userData = await getDoc(collectionRef);
+        const favorites = userData.data().favorites;
+        const paginateFavorites = favorites.splice((page - 1) * 10 , page * 10)
+        const products = query(collection(db, "products"), where(documentId(), "in", paginateFavorites))
+        const dataDocs = await getDocs(products)
+
+        dataDocs.forEach((doc) => {
+                favoriteItems.push({ 
+                    id: doc.id, data: doc.data() 
+                })
+        });
+
+        return favoriteItems
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 export const updateFavorites = async (userId, favoriteId) => {
     const profileReference = doc(db, "users", userId);
 
-    await updateDoc(profileReference, {
-        favorites: arrayUnion(favoriteId)
-    })
+    try {
+        await updateDoc(profileReference, {
+            favorites: arrayUnion(favoriteId)
+        })
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 export const updateDataProfile = async (uid, address, postal, phone) => {
@@ -25,10 +52,10 @@ export const updateDataProfile = async (uid, address, postal, phone) => {
 
 export const getProfile = async (uid) => {
     try {
-        const usersCollection  = query(collection(db, "users"), where("uid", "==", uid));
+        const usersCollection = query(collection(db, "users"), where("uid", "==", uid));
         const ordersCollection = query(collection(db, "orders"), where("buyer.userId", "==", uid));
 
-        const querySnapshotUsers  = await getDocs(usersCollection);
+        const querySnapshotUsers = await getDocs(usersCollection);
         const querySnapshotOrders = await getDocs(ordersCollection);
 
         const data = []
@@ -54,7 +81,7 @@ export const saveOrder = async (orderDetails) => {
         const collectionRef = collection(db, 'orders')
         const result = await addDoc(collectionRef, orderDetails)
         return result.id;
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }

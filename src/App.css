@@ -91,10 +91,41 @@ body {
   margin-left: 2px;
 }
 
+
+.hide-logo
+{
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
 /* todo */
 @media (min-width: 768px) {}
+/* 
+@media (max-width: 892px) {
+ .header__categories {
+    position: absolute;
+    background: palevioletred;
+    height: 100vh;
+    z-index: 1;
+    padding: 36px;
+    top: 0;
+  }
+ 
 
-@media (min-width: 992px) {}
+  .header__categories ul li {
+    display: block;
+    margin-top: 30px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+  
+
+} */
 
 @media (max-width: 1200px) {
   .hedaer__finder {

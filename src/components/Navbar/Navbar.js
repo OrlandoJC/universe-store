@@ -68,7 +68,7 @@ const Navbar = () => {
                     <div className="header__bar">
                         <input className="hedaer__finder" id="search" type="text" placeholder="Buscar.." />
                         <button className="bar__search"><FontAwesomeIcon icon={faMagnifyingGlass} className="icon" /></button>
-                        <span><FontAwesomeIcon icon={faHeart} className="icon" /></span>
+                        <span> <Link to="/wishlist"><FontAwesomeIcon icon={faHeart} className="icon" /></Link></span>
                         {
                             user
                                 ? <span className="avatar">

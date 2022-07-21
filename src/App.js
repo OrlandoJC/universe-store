@@ -14,13 +14,14 @@ import Footer from './components/Footer/Footer';
 import OrdersHistory from './components/OrdersHistory/OrdersHistory';
 import RequireAuth from './components/context/RequireAuth';
 import PageError from './components/PageError/PageError';
+import WishList from './components/WishList.js/WishList';
 
 function App() {
   return (
     <div className="App">
-      <AuthContextProvider>
-        <CartContextProvider>
-          <BrowserRouter>
+      <BrowserRouter>
+        <AuthContextProvider>
+          <CartContextProvider>
             <Navbar />
             <Routes>
               <Route exact path='/' element={<ItemListContainer />} />
@@ -31,13 +32,15 @@ function App() {
               <Route exact path='/profile' element={<RequireAuth> <Profile /></RequireAuth>} />
               <Route exact path='/checkout' element={<Checkout />} />
               <Route exact path='/success/' element={<Success />} />
+              <Route exact path='/WishList/' element={<WishList />} />
               <Route exact path='/orders/:orderId' element={<RequireAuth><OrdersHistory /></RequireAuth>} />
               <Route exact path='*' element={<PageError />} />
             </Routes>
             <Footer />
-          </BrowserRouter>
-        </CartContextProvider>
-      </AuthContextProvider>
+          </CartContextProvider>
+        </AuthContextProvider>
+      </BrowserRouter>
+
     </div>
   );
 }
